@@ -33,8 +33,17 @@ void httpserver::slotReadClient()
     os << "HTTP/1.0 200 Ok\r\n"
           "Content-Type: text/html; charset=\"utf-8\"\r\n"
           "\r\n"
-          "<h1>Nothing to see here</h1>\n"
-          << QDateTime::currentDateTime().toString() << "\n";
+          "<!DOCTYPE html>"
+            "<html lang='en'>"
+            "<head>"
+                "<meta charset='UTF-8'>"
+                "<meta content='width=device-width, user-scalable=no' name='viewport'>"
+                "<title>Jun</title>"
+            "</head>"
+            "<body>"
+                "<h1>Jun WebServer</h1>"
+            "</body>"
+            "</html>";
     qDebug() << "ReadClient:"+clientSocket->readAll()+"\n\r";
     // Если нужно закрыть сокет
     clientSocket->close();
